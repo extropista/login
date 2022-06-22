@@ -1,0 +1,69 @@
+{% extends './base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<h1>Bienvenido, {{ current_user.fullname }}</h1>
+<a class="btn btn-secondary" href="{{ url_for('logout') }}">Logout</a>
+	<body bgcolor="#e6ffee">
+		<div class="one">
+			<div class="two">
+				<h1>Barra de navegación</h1>
+				<ul>
+					<li><a href="{{url_for('index')}}">Panel de usuario</a></li>
+					<li class="active"><a href="{{url_for('homepage')}}">Panel de usuario</a></li>
+					<li><a href="{{url_for('update')}}">Update</a></li>
+					<li><a href="{{url_for('logout')}}">Log out</a></li>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2> Panel de usuario</h2>						
+				</div> </br>
+				<div class="contentbar">
+					<h1>Datos de tu cuenta</h1> </br>
+					{% block content %}
+						<div class="border">
+							<table class="worddark"></br></br></br></br>
+								<tr>
+									<td>Username:</td>
+									<td>{{ user['username'] }}</td>
+								</tr>
+								<tr>
+									<td>Passworde:</td>
+									<td>{{ user['password'] }}</td>
+								</tr>
+                                <tr>
+									<td>Nombre Completo:</td>
+									<td>{{ user['fullname'] }}</td>
+								</tr>
+								<tr>
+									<td>Email ID:</td>
+									<td>{{ mandato['email'] }}</td>
+								</tr>
+
+								<tr>
+									<td>Dirección:</td>
+									<td>{{ mandato['direccion'] }}</td>
+								</tr>
+								<tr>
+									<td>Región:</td>
+									<td>{{ mandato['Region'] }}</td>
+								</tr>
+								<tr>
+									<td>Comuna:</td>
+									<td>{{ mandato['comuna'] }}</td>
+								</tr>
+								<tr>
+									<td>Postal code:</td>
+									<td>{{ mandato['postalcode'] }}</td>
+								</tr>						
+							</table>
+						</div>
+					{% endblock %}										
+				</div>
+				
+			</div>
+		</div>
+	</body>
+{% endblock %}

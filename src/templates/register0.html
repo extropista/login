@@ -1,0 +1,41 @@
+{% extends './base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block body %}
+
+		<div class="registercontent" align="center">
+			<div class="registertop">
+				<h1>Registro</h1>
+			</div></br></br>
+			<div class="registerbottom">
+			<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    		<div class="form-floating">
+				<input type="text" class="form-control" id="username" name="username" placeholder="Username">
+				<label for="username">Usuario</label>
+    		</div>
+    		<div class="form-floating mt-2">
+				<input type="password" class="form-control" name="password" placeholder="Password">
+				<label for="password">Clave</label>
+    		</div>
+			<form action="{{ url_for('register')}}" method="post" autocomplete="off">
+			<div class="msg">{{ msg }}</div>
+			<input type="text" name="username" placeholder="Ingrese su nombre de usuario" class="textbox" id="username" required></br></br>
+			<input type="password" name="password" placeholder="Ingrese su contraseña" class="textbox" id="password" required></br></br>
+			<input type="email" name="email" placeholder="Ingrese su correo electrónico" class="textbox" id="email" required></br></br>
+			<input type="text" name="direccion" placeholder="Ingrese su dirección" class="textbox" id="address" required></br></br>
+			<input type="text" name="region" placeholder="Ingrese su región" class="textbox" id="city" required></br></br>
+			<input type="text" name="comuna" placeholder="Ingrese su comuna" class="textbox" id="state" required></br></br>
+			<input type="text" name="postalcode" placeholder="Ingrese su Codigo Postal" class="textbox" id="postalcode" required></br></br>
+			<input type="submit" class="btn" value="Register">
+			</form>
+			<p class="worddark">Es un nuevo aportante? <a class="worddark" href="{{ url_for('login')}}">Regístrese aquí</a></p>
+			</div>
+		</div>
+	</body>
+</html>
+{% endblock %}
