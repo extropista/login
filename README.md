@@ -1,5 +1,5 @@
 # Login (Autenticación) con Python, Flask y oracledb
-Autenticación de usuarios utilizando Python, Flask, flask-login y oracledb.
+Autenticación de usuarios utilizando Python, Flask, Bootstrap, y mySQL.
 
 <hr/>
 
